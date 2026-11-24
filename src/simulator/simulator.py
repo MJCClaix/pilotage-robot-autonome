@@ -29,16 +29,24 @@ if __name__ == "__main__":
 
     sim_spec = mujoco.MjSpec()
 
-    scene = SceneModel(sim_spec, scene_parameters, robot_frame_mesh_path, textures_folder_path)
-    robot = Robot2026(sim_spec, robot_parameters, robot_specs)
+    scene = SceneModel(sim_spec, scene_parameters, textures_folder_path)
+    robot = Robot2026(r"C:\Users\Timeo\OneDrive\Documents\OneDrive\Documents\maison\robotique\pilotage-robot-autonome\assets\simulator\URDF_models\assembled_robot2026.urdf", robot_specs)
 
     scene.add_robot(robot, (0, 0, 0))
 
     model, data = scene.compile()
 
+    # Déplace les collisions du robot vers le groupe 3 (masqué par défaut dans le viewer) :
+    # seul le mesh visuel reste affiché. La physique n'est pas modifiée.
+    for geom_id in range(model.ngeom):
+        body_name = mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_BODY, model.geom_bodyid[geom_id])
+        if body_name and body_name.startswith("robot/") and model.geom_group[geom_id] == 0:
+            model.geom_group[geom_id] = 3
+
     with mujoco.viewer.launch_passive(model, data) as viewer:
         start_time = time.time()
         while viewer.is_running():
+
             step_start = time.time()
 
             if start_time + 2 < time.time():

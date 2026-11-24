@@ -8,7 +8,7 @@ from simulator.models.scenes.scene_parameters import SceneParameters
 
 
 class SceneModel:
-    def __init__(self, sim_spec: mujoco.MjSpec, scene_parameters: SceneParameters, robot_frame_mesh_path: str, textures_folder_path: Path) -> None:
+    def __init__(self, sim_spec: mujoco.MjSpec, scene_parameters: SceneParameters, textures_folder_path: Path) -> None:
         # C'est la scène qui possède l'objet MjSpec racine
         self.sim_spec = sim_spec
         self.scene_parameters = scene_parameters
@@ -25,7 +25,7 @@ class SceneModel:
         self.sim_spec.add_texture(
             name="table_texture",
             type=mujoco.mjtTexture.mjTEXTURE_2D,
-            file=str(textures_folder_path / "2027" / "table.png"),
+            file=str(textures_folder_path / "2027" / "table_4096.png"),
         )
         self.sim_spec.add_texture(
             name="aruco_marker_texture",
@@ -87,13 +87,10 @@ class SceneModel:
             pos=[-self.scene_parameters.width / 2 - self.scene_parameters.borders.thickness / 2, 0, self.scene_parameters.borders.height / 2],
             material="wood_material",
         )
-        
-
-        self.sim_spec.add_mesh(name="robot_frame_mesh", file=robot_frame_mesh_path)
 
     def add_robot(self, robot: RobotModelBase, position: tuple[float, float, float]):
         """Injecte le robot dans le monde de la scène"""
-        robot.assemble(self.sim_spec.worldbody, start_position=position)
+        robot.assemble(self.sim_spec, position)
 
     def compile(self):
         """Transforme l'arbre complet en modèle physique exécutable"""

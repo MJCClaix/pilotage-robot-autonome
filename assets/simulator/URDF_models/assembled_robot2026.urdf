@@ -8,6 +8,21 @@
   <material name="PU_90A">
     <color rgba="0.153 0.153 0.153 1.0"/>
   </material>
+  <material name="mat_metal">
+    <color rgba="0.960784 0.960784 0.964706 1.0"/>
+  </material>
+  <material name="mat_epx">
+    <color rgba="0.247059 0.247059 0.247059 1.0"/>
+  </material>
+  <material name="mat_acier">
+    <color rgba="0.627451 0.627451 0.627451 1.0"/>
+  </material>
+  <material name="mat_abs">
+    <color rgba="0.964706 0.964706 0.952941 1.0"/>
+  </material>
+  <material name="mat_alu">
+    <color rgba="0.960784 0.960784 0.964706 1.0"/>
+  </material>
 
   <link name="base_link">
     <inertial>
@@ -19,14 +34,42 @@
     <visual>
       <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
       <geometry>
-        <mesh filename="package://assembled_robot2026_description/meshes/assembled_robot2026/base_link.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="robots/2026/base_link_metal.obj" scale="0.01 0.01 0.01"/>
       </geometry>
-      <material name="Acier"/>
+      <material name="mat_metal"/>
+    </visual>
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="robots/2026/base_link_epx.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="mat_epx"/>
+    </visual>
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="robots/2026/base_link_acier.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="mat_acier"/>
+    </visual>
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="robots/2026/base_link_abs.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="mat_abs"/>
+    </visual>
+    <visual>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
+      <geometry>
+        <mesh filename="robots/2026/base_link_alu.obj" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="mat_alu"/>
     </visual>
     <collision>
-      <origin xyz="0.000000 -0.025100 0.109000" rpy="0.000000 -0.000000 0.000000"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
       <geometry>
-        <cylinder radius="0.132450" length="0.218000"/>
+        <mesh filename="robots/2026/base_link.obj" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
   </link>
@@ -121,20 +164,20 @@
 
   <link name="wheel1_roller">
     <inertial>
-      <origin xyz="0.130000 0.067175 0.109602" rpy="0 0 0"/>
+      <origin xyz="-0.000002 -0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.130002 0.067176 0.109602" rpy="-0.000064 0.000010 0.416091"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.416091"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.130002 0.067176 0.109602" rpy="-0.000064 0.000010 0.416091"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.416091"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -143,20 +186,20 @@
 
   <link name="wheel1_roller_2">
     <inertial>
-      <origin xyz="0.062401 0.052200 0.163726" rpy="0 0 0"/>
+      <origin xyz="-0.000002 -0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.062403 0.052202 0.163726" rpy="-0.000064 0.000010 0.951594"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.951594"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.062403 0.052202 0.163726" rpy="-0.000064 0.000010 0.951594"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.951594"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -165,20 +208,20 @@
 
   <link name="wheel1_roller_3">
     <inertial>
-      <origin xyz="0.003963 -0.008172 0.182599" rpy="0 0 0"/>
+      <origin xyz="0.000000 -0.000003 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.003963 -0.008169 0.182599" rpy="-0.000064 0.000010 1.742508"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 1.742508"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.003963 -0.008169 0.182599" rpy="-0.000064 0.000010 1.742508"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 1.742508"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -187,20 +230,20 @@
 
   <link name="wheel1_roller_4">
     <inertial>
-      <origin xyz="0.042525 -0.082735 0.157390" rpy="0 0 0"/>
+      <origin xyz="0.000003 -0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.042522 -0.082733 0.157390" rpy="-0.000064 0.000010 2.671607"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 2.671607"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.042522 -0.082733 0.157390" rpy="-0.000064 0.000010 2.671607"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 2.671607"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -209,20 +252,20 @@
 
   <link name="wheel1_roller_5">
     <inertial>
-      <origin xyz="0.109079 -0.107461 0.099894" rpy="0 0 0"/>
+      <origin xyz="0.000002 0.000000 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.109077 -0.107461 0.099894" rpy="-0.000064 0.000010 -2.977400"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.977400"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.109077 -0.107461 0.099894" rpy="-0.000064 0.000010 -2.977400"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.977400"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -231,20 +274,20 @@
 
   <link name="wheel1_roller_6">
     <inertial>
-      <origin xyz="0.143203 -0.107461 0.037015" rpy="0 0 0"/>
+      <origin xyz="0.000002 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.143201 -0.107463 0.037015" rpy="-0.000064 0.000010 -2.473602"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.473602"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.143201 -0.107463 0.037015" rpy="-0.000064 0.000010 -2.473602"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.473602"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -253,20 +296,20 @@
 
   <link name="wheel1_roller_7">
     <inertial>
-      <origin xyz="0.163024 -0.082735 -0.001827" rpy="0 0 0"/>
+      <origin xyz="0.000001 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.163023 -0.082737 -0.001827" rpy="-0.000064 0.000010 -1.839424"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -1.839424"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.163023 -0.082737 -0.001827" rpy="-0.000064 0.000010 -1.839424"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -1.839424"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -275,20 +318,20 @@
 
   <link name="wheel1_roller_8">
     <inertial>
-      <origin xyz="0.182636 -0.008172 0.001545" rpy="0 0 0"/>
+      <origin xyz="-0.000001 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.182637 -0.008174 0.001545" rpy="-0.000064 0.000010 -0.910325"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.910325"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.182637 -0.008174 0.001545" rpy="-0.000064 0.000010 -0.910325"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.910325"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -297,20 +340,20 @@
 
   <link name="wheel1_roller_9">
     <inertial>
-      <origin xyz="0.169190 0.052200 0.045551" rpy="0 0 0"/>
+      <origin xyz="-0.000003 0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.169193 0.052199 0.045551" rpy="-0.000064 0.000010 -0.119412"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.119412"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.169193 0.052199 0.045551" rpy="-0.000064 0.000010 -0.119412"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.119412"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -319,20 +362,20 @@
 
   <link name="wheel1_roller_10">
     <inertial>
-      <origin xyz="-0.130000 -0.109602 -0.067175" rpy="0 0 0"/>
+      <origin xyz="-0.000002 -0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.129998 -0.109601 -0.067175" rpy="-0.000064 0.000010 0.416091"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.416091"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.129998 -0.109601 -0.067175" rpy="-0.000064 0.000010 0.416091"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.416091"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -341,20 +384,20 @@
 
   <link name="wheel1_roller_11">
     <inertial>
-      <origin xyz="-0.078986 -0.099830 -0.131226" rpy="0 0 0"/>
+      <origin xyz="-0.000002 -0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.078984 -0.099828 -0.131226" rpy="-0.000064 0.000010 0.951594"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.951594"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.078984 -0.099828 -0.131226" rpy="-0.000064 0.000010 0.951594"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.951594"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -363,20 +406,20 @@
 
   <link name="wheel1_roller_12">
     <inertial>
-      <origin xyz="-0.011112 -0.050944 -0.175232" rpy="0 0 0"/>
+      <origin xyz="0.000000 -0.000003 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.011112 -0.050941 -0.175232" rpy="-0.000064 0.000010 1.742508"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 1.742508"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.011112 -0.050941 -0.175232" rpy="-0.000064 0.000010 1.742508"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 1.742508"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -385,20 +428,20 @@
 
   <link name="wheel1_roller_13">
     <inertial>
-      <origin xyz="-0.026093 0.029069 -0.178603" rpy="0 0 0"/>
+      <origin xyz="0.000002 -0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.026095 0.029070 -0.178603" rpy="-0.000064 0.000010 2.671607"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 2.671607"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.026095 0.029070 -0.178603" rpy="-0.000064 0.000010 2.671607"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 2.671607"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -407,20 +450,20 @@
 
   <link name="wheel1_roller_14">
     <inertial>
-      <origin xyz="-0.099142 0.063737 -0.139762" rpy="0 0 0"/>
+      <origin xyz="0.000003 0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.099145 0.063736 -0.139762" rpy="-0.000064 0.000010 -2.977400"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.977400"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.099145 0.063736 -0.139762" rpy="-0.000064 0.000010 -2.977400"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.977400"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -429,20 +472,20 @@
 
   <link name="wheel1_roller_15">
     <inertial>
-      <origin xyz="-0.153140 0.063737 -0.076882" rpy="0 0 0"/>
+      <origin xyz="0.000002 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.153142 0.063735 -0.076882" rpy="-0.000064 0.000010 -2.473602"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.473602"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.153142 0.063735 -0.076882" rpy="-0.000064 0.000010 -2.473602"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.473602"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -451,20 +494,20 @@
 
   <link name="wheel1_roller_16">
     <inertial>
-      <origin xyz="-0.179455 0.029069 -0.019387" rpy="0 0 0"/>
+      <origin xyz="0.000001 0.000003 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.179456 0.029066 -0.019387" rpy="-0.000064 0.000010 -1.839424"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -1.839424"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.179456 0.029066 -0.019387" rpy="-0.000064 0.000010 -1.839424"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -1.839424"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -473,20 +516,20 @@
 
   <link name="wheel1_roller_17">
     <inertial>
-      <origin xyz="-0.175487 -0.050944 0.005823" rpy="0 0 0"/>
+      <origin xyz="-0.000001 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.175486 -0.050946 0.005823" rpy="-0.000064 0.000010 -0.910325"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.910325"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.175486 -0.050946 0.005823" rpy="-0.000064 0.000010 -0.910325"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.910325"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -495,20 +538,20 @@
 
   <link name="wheel1_roller_18">
     <inertial>
-      <origin xyz="-0.152606 -0.099830 -0.013051" rpy="0 0 0"/>
+      <origin xyz="-0.000003 0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.152603 -0.099831 -0.013051" rpy="-0.000064 0.000010 -0.119412"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.119412"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.152603 -0.099831 -0.013051" rpy="-0.000064 0.000010 -0.119412"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.119412"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -517,20 +560,20 @@
 
   <link name="wheel2_roller">
     <inertial>
-      <origin xyz="-0.130000 -0.109602 0.067175" rpy="0 0 0"/>
+      <origin xyz="-0.000002 -0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.129998 -0.109601 0.067175" rpy="-0.000064 0.000010 0.416091"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.416091"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.129998 -0.109601 0.067175" rpy="-0.000064 0.000010 0.416091"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.416091"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -539,20 +582,20 @@
 
   <link name="wheel2_roller_2">
     <inertial>
-      <origin xyz="-0.078986 -0.099830 0.131226" rpy="0 0 0"/>
+      <origin xyz="-0.000002 -0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.078984 -0.099828 0.131226" rpy="-0.000064 0.000010 0.951594"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.951594"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.078984 -0.099828 0.131226" rpy="-0.000064 0.000010 0.951594"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.951594"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -561,20 +604,20 @@
 
   <link name="wheel2_roller_3">
     <inertial>
-      <origin xyz="-0.011112 -0.050944 0.175232" rpy="0 0 0"/>
+      <origin xyz="0.000000 -0.000003 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.011112 -0.050941 0.175232" rpy="-0.000064 0.000010 1.742508"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 1.742508"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.011112 -0.050941 0.175232" rpy="-0.000064 0.000010 1.742508"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 1.742508"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -583,20 +626,20 @@
 
   <link name="wheel2_roller_4">
     <inertial>
-      <origin xyz="-0.026093 0.029069 0.178603" rpy="0 0 0"/>
+      <origin xyz="0.000002 -0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.026095 0.029070 0.178603" rpy="-0.000064 0.000010 2.671607"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 2.671607"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.026095 0.029070 0.178603" rpy="-0.000064 0.000010 2.671607"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 2.671607"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -605,20 +648,20 @@
 
   <link name="wheel2_roller_5">
     <inertial>
-      <origin xyz="-0.099142 0.063737 0.139762" rpy="0 0 0"/>
+      <origin xyz="0.000003 0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.099145 0.063736 0.139762" rpy="-0.000064 0.000010 -2.977400"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.977400"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.099145 0.063736 0.139762" rpy="-0.000064 0.000010 -2.977400"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.977400"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -627,20 +670,20 @@
 
   <link name="wheel2_roller_6">
     <inertial>
-      <origin xyz="-0.153140 0.063737 0.076882" rpy="0 0 0"/>
+      <origin xyz="0.000002 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.153142 0.063735 0.076882" rpy="-0.000064 0.000010 -2.473602"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.473602"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.153142 0.063735 0.076882" rpy="-0.000064 0.000010 -2.473602"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.473602"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -649,20 +692,20 @@
 
   <link name="wheel2_roller_7">
     <inertial>
-      <origin xyz="-0.179455 0.029069 0.019387" rpy="0 0 0"/>
+      <origin xyz="0.000001 0.000003 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.179456 0.029066 0.019387" rpy="-0.000064 0.000010 -1.839424"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -1.839424"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.179456 0.029066 0.019387" rpy="-0.000064 0.000010 -1.839424"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -1.839424"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -671,20 +714,20 @@
 
   <link name="wheel2_roller_8">
     <inertial>
-      <origin xyz="-0.175487 -0.050944 -0.005823" rpy="0 0 0"/>
+      <origin xyz="-0.000001 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.175486 -0.050946 -0.005823" rpy="-0.000064 0.000010 -0.910325"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.910325"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.175486 -0.050946 -0.005823" rpy="-0.000064 0.000010 -0.910325"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.910325"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -693,20 +736,20 @@
 
   <link name="wheel2_roller_9">
     <inertial>
-      <origin xyz="-0.152606 -0.099830 0.013051" rpy="0 0 0"/>
+      <origin xyz="-0.000003 0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="-0.152603 -0.099831 0.013051" rpy="-0.000064 0.000010 -0.119412"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.119412"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="-0.152603 -0.099831 0.013051" rpy="-0.000064 0.000010 -0.119412"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.119412"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -715,20 +758,20 @@
 
   <link name="wheel2_roller_10">
     <inertial>
-      <origin xyz="0.130000 0.067175 -0.109602" rpy="0 0 0"/>
+      <origin xyz="-0.000002 -0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.130002 0.067176 -0.109602" rpy="-0.000064 0.000010 0.416091"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.416091"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.130002 0.067176 -0.109602" rpy="-0.000064 0.000010 0.416091"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.416091"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -737,20 +780,20 @@
 
   <link name="wheel2_roller_11">
     <inertial>
-      <origin xyz="0.062401 0.052200 -0.163726" rpy="0 0 0"/>
+      <origin xyz="-0.000002 -0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.062403 0.052202 -0.163726" rpy="-0.000064 0.000010 0.951594"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.951594"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.062403 0.052202 -0.163726" rpy="-0.000064 0.000010 0.951594"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 0.951594"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -759,20 +802,20 @@
 
   <link name="wheel2_roller_12">
     <inertial>
-      <origin xyz="0.003963 -0.008172 -0.182599" rpy="0 0 0"/>
+      <origin xyz="0.000000 -0.000003 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.003963 -0.008169 -0.182599" rpy="-0.000064 0.000010 1.742508"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 1.742508"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.003963 -0.008169 -0.182599" rpy="-0.000064 0.000010 1.742508"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 1.742508"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -781,20 +824,20 @@
 
   <link name="wheel2_roller_13">
     <inertial>
-      <origin xyz="0.042525 -0.082735 -0.157390" rpy="0 0 0"/>
+      <origin xyz="0.000003 -0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.042522 -0.082733 -0.157390" rpy="-0.000064 0.000010 2.671607"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 2.671607"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.042522 -0.082733 -0.157390" rpy="-0.000064 0.000010 2.671607"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 2.671607"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -803,20 +846,20 @@
 
   <link name="wheel2_roller_14">
     <inertial>
-      <origin xyz="0.109079 -0.107461 -0.099894" rpy="0 0 0"/>
+      <origin xyz="0.000002 0.000000 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.109077 -0.107461 -0.099894" rpy="-0.000064 0.000010 -2.977400"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.977400"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.109077 -0.107461 -0.099894" rpy="-0.000064 0.000010 -2.977400"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.977400"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -825,20 +868,20 @@
 
   <link name="wheel2_roller_15">
     <inertial>
-      <origin xyz="0.143203 -0.107461 -0.037015" rpy="0 0 0"/>
+      <origin xyz="0.000002 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.143201 -0.107463 -0.037015" rpy="-0.000064 0.000010 -2.473602"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.473602"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.143201 -0.107463 -0.037015" rpy="-0.000064 0.000010 -2.473602"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -2.473602"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -847,20 +890,20 @@
 
   <link name="wheel2_roller_16">
     <inertial>
-      <origin xyz="0.163024 -0.082735 0.001827" rpy="0 0 0"/>
+      <origin xyz="0.000001 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.163023 -0.082737 0.001827" rpy="-0.000064 0.000010 -1.839424"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -1.839424"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.163023 -0.082737 0.001827" rpy="-0.000064 0.000010 -1.839424"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -1.839424"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -869,20 +912,20 @@
 
   <link name="wheel2_roller_17">
     <inertial>
-      <origin xyz="0.182636 -0.008172 -0.001545" rpy="0 0 0"/>
+      <origin xyz="-0.000001 0.000002 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.182637 -0.008174 -0.001545" rpy="-0.000064 0.000010 -0.910325"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.910325"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.182637 -0.008174 -0.001545" rpy="-0.000064 0.000010 -0.910325"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.910325"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -891,20 +934,20 @@
 
   <link name="wheel2_roller_18">
     <inertial>
-      <origin xyz="0.169190 0.052200 -0.045551" rpy="0 0 0"/>
+      <origin xyz="-0.000003 0.000001 0.000000" rpy="0 0 0"/>
       <mass value="0.004478"/>
       <inertia ixx="1.000000e-06" ixy="0.000000e+00" ixz="0.000000e+00"
                iyy="1.000000e-06" iyz="0.000000e+00" izz="1.000000e-06"/>
     </inertial>
     <visual>
-      <origin xyz="0.169193 0.052199 -0.045551" rpy="-0.000064 0.000010 -0.119412"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.119412"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
       <material name="PU_90A"/>
     </visual>
     <collision>
-      <origin xyz="0.169193 0.052199 -0.045551" rpy="-0.000064 0.000010 -0.119412"/>
+      <origin xyz="0.000000 0.000000 0.000000" rpy="-0.000064 0.000010 -0.119412"/>
       <geometry>
         <cylinder radius="0.006721" length="0.042992"/>
       </geometry>
@@ -946,7 +989,7 @@
   <joint name="wheel1_roller1_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller"/>
-    <origin xyz="-0.104224 0.030000 -0.109800" rpy="0.785398 0.000000 0.000000"/>
+    <origin xyz="0.025778 0.000000 0.015201" rpy="0.785398 0.000000 0.000000"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -954,7 +997,7 @@
   <joint name="wheel1_roller2_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller_2"/>
-    <origin xyz="-0.110254 0.046569 -0.109800" rpy="0.710278 0.369145 0.300886"/>
+    <origin xyz="0.019747 0.016571 0.015201" rpy="0.710278 0.369145 0.300886"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -962,7 +1005,7 @@
   <joint name="wheel1_roller3_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller_3"/>
-    <origin xyz="-0.125524 0.055385 -0.109800" rpy="0.237392 0.756110 0.164504"/>
+    <origin xyz="0.004476 0.025388 0.015200" rpy="0.237392 0.756110 0.164504"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -970,7 +1013,7 @@
   <joint name="wheel1_roller4_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller_4"/>
-    <origin xyz="-0.142888 0.052323 -0.109800" rpy="-0.563943 0.579640 -0.333473"/>
+    <origin xyz="-0.012890 0.022325 0.015201" rpy="-0.563943 0.579640 -0.333473"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -978,7 +1021,7 @@
   <joint name="wheel1_roller5_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller_5"/>
-    <origin xyz="-0.154222 0.038816 -0.109800" rpy="-0.769367 0.177167 -0.169051"/>
+    <origin xyz="-0.024224 0.008816 0.015200" rpy="-0.769367 0.177167 -0.169051"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -986,7 +1029,7 @@
   <joint name="wheel1_roller6_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller_6"/>
-    <origin xyz="-0.154222 0.021184 -0.109800" rpy="-0.769367 -0.177167 0.169051"/>
+    <origin xyz="-0.024224 -0.008817 0.015201" rpy="-0.769367 -0.177167 0.169051"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -994,7 +1037,7 @@
   <joint name="wheel1_roller7_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller_7"/>
-    <origin xyz="-0.142888 0.007677 -0.109800" rpy="-0.563943 -0.579640 0.333473"/>
+    <origin xyz="-0.012888 -0.022326 0.015201" rpy="-0.563943 -0.579640 0.333473"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1002,7 +1045,7 @@
   <joint name="wheel1_roller8_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller_8"/>
-    <origin xyz="-0.125524 0.004615 -0.109800" rpy="0.237392 -0.756110 -0.164504"/>
+    <origin xyz="0.004477 -0.025387 0.015201" rpy="0.237392 -0.756110 -0.164504"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1010,7 +1053,7 @@
   <joint name="wheel1_roller9_axe" type="continuous">
     <parent link="wheel1_hub"/>
     <child link="wheel1_roller_9"/>
-    <origin xyz="-0.110254 0.013431 -0.109800" rpy="0.710278 -0.369145 -0.300886"/>
+    <origin xyz="0.019749 -0.016570 0.015201" rpy="0.710278 -0.369145 -0.300886"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1018,7 +1061,7 @@
   <joint name="wheel1_roller1_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_10"/>
-    <origin xyz="0.155776 -0.030000 -0.109800" rpy="-2.356194 0.000000 0.000000"/>
+    <origin xyz="0.025778 -0.000000 0.015200" rpy="-2.356194 0.000000 0.000000"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1026,7 +1069,7 @@
   <joint name="wheel1_roller2_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_11"/>
-    <origin xyz="0.149746 -0.046569 -0.109800" rpy="-2.431315 -0.369145 -0.300886"/>
+    <origin xyz="0.019747 -0.016572 0.015199" rpy="-2.431315 -0.369145 -0.300886"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1034,7 +1077,7 @@
   <joint name="wheel1_roller3_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_12"/>
-    <origin xyz="0.134476 -0.055385 -0.109800" rpy="-2.904200 -0.756110 -0.164504"/>
+    <origin xyz="0.004476 -0.025388 0.015199" rpy="-2.904200 -0.756110 -0.164504"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1042,7 +1085,7 @@
   <joint name="wheel1_roller4_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_13"/>
-    <origin xyz="0.117112 -0.052323 -0.109800" rpy="2.577650 -0.579640 0.333473"/>
+    <origin xyz="-0.012889 -0.022325 0.015199" rpy="2.577650 -0.579640 0.333473"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1050,7 +1093,7 @@
   <joint name="wheel1_roller5_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_14"/>
-    <origin xyz="0.105778 -0.038816 -0.109800" rpy="2.372226 -0.177167 0.169051"/>
+    <origin xyz="-0.024225 -0.008816 0.015199" rpy="2.372226 -0.177167 0.169051"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1058,7 +1101,7 @@
   <joint name="wheel1_roller6_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_15"/>
-    <origin xyz="0.105778 -0.021184 -0.109800" rpy="2.372226 0.177167 -0.169051"/>
+    <origin xyz="-0.024224 0.008817 0.015199" rpy="2.372226 0.177167 -0.169051"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1066,7 +1109,7 @@
   <joint name="wheel1_roller7_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_16"/>
-    <origin xyz="0.117112 -0.007677 -0.109800" rpy="2.577650 0.579640 -0.333473"/>
+    <origin xyz="-0.012888 0.022326 0.015200" rpy="2.577650 0.579640 -0.333473"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1074,7 +1117,7 @@
   <joint name="wheel1_roller8_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_17"/>
-    <origin xyz="0.134476 -0.004615 -0.109800" rpy="-2.904200 0.756110 0.164504"/>
+    <origin xyz="0.004477 0.025388 0.015199" rpy="-2.904200 0.756110 0.164504"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1082,7 +1125,7 @@
   <joint name="wheel1_roller9_axe_2" type="continuous">
     <parent link="wheel1_hub_2"/>
     <child link="wheel1_roller_18"/>
-    <origin xyz="0.149746 -0.013431 -0.109800" rpy="-2.431315 0.369145 0.300886"/>
+    <origin xyz="0.019749 0.016570 0.015200" rpy="-2.431315 0.369145 0.300886"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1090,7 +1133,7 @@
   <joint name="wheel2_roller1_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller"/>
-    <origin xyz="0.155776 0.030000 -0.109800" rpy="-0.785398 0.000000 0.000000"/>
+    <origin xyz="0.025778 0.000000 0.015200" rpy="-0.785398 0.000000 0.000000"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1098,7 +1141,7 @@
   <joint name="wheel2_roller2_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller_2"/>
-    <origin xyz="0.149746 0.046569 -0.109800" rpy="-0.710278 -0.369145 0.300886"/>
+    <origin xyz="0.019747 0.016572 0.015199" rpy="-0.710278 -0.369145 0.300886"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1106,7 +1149,7 @@
   <joint name="wheel2_roller3_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller_3"/>
-    <origin xyz="0.134476 0.055385 -0.109800" rpy="-0.237392 -0.756110 0.164504"/>
+    <origin xyz="0.004476 0.025388 0.015199" rpy="-0.237392 -0.756110 0.164504"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1114,7 +1157,7 @@
   <joint name="wheel2_roller4_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller_4"/>
-    <origin xyz="0.117112 0.052323 -0.109800" rpy="0.563943 -0.579640 -0.333473"/>
+    <origin xyz="-0.012889 0.022325 0.015199" rpy="0.563943 -0.579640 -0.333473"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1122,7 +1165,7 @@
   <joint name="wheel2_roller5_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller_5"/>
-    <origin xyz="0.105778 0.038816 -0.109800" rpy="0.769367 -0.177167 -0.169051"/>
+    <origin xyz="-0.024225 0.008816 0.015199" rpy="0.769367 -0.177167 -0.169051"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1130,7 +1173,7 @@
   <joint name="wheel2_roller6_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller_6"/>
-    <origin xyz="0.105778 0.021184 -0.109800" rpy="0.769367 0.177167 0.169051"/>
+    <origin xyz="-0.024224 -0.008817 0.015199" rpy="0.769367 0.177167 0.169051"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1138,7 +1181,7 @@
   <joint name="wheel2_roller7_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller_7"/>
-    <origin xyz="0.117112 0.007677 -0.109800" rpy="0.563943 0.579640 0.333473"/>
+    <origin xyz="-0.012888 -0.022326 0.015200" rpy="0.563943 0.579640 0.333473"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1146,7 +1189,7 @@
   <joint name="wheel2_roller8_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller_8"/>
-    <origin xyz="0.134476 0.004615 -0.109800" rpy="-0.237392 0.756110 -0.164504"/>
+    <origin xyz="0.004477 -0.025388 0.015199" rpy="-0.237392 0.756110 -0.164504"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1154,7 +1197,7 @@
   <joint name="wheel2_roller9_axe" type="continuous">
     <parent link="wheel2_hub"/>
     <child link="wheel2_roller_9"/>
-    <origin xyz="0.149746 0.013431 -0.109800" rpy="-0.710278 0.369145 -0.300886"/>
+    <origin xyz="0.019749 -0.016570 0.015200" rpy="-0.710278 0.369145 -0.300886"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1162,7 +1205,7 @@
   <joint name="wheel2_roller1_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_10"/>
-    <origin xyz="-0.104224 -0.030000 -0.109800" rpy="2.356194 0.000000 0.000000"/>
+    <origin xyz="0.025778 -0.000000 0.015201" rpy="2.356194 0.000000 0.000000"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1170,7 +1213,7 @@
   <joint name="wheel2_roller2_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_11"/>
-    <origin xyz="-0.110254 -0.046569 -0.109800" rpy="2.431315 0.369145 -0.300886"/>
+    <origin xyz="0.019747 -0.016571 0.015201" rpy="2.431315 0.369145 -0.300886"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1178,7 +1221,7 @@
   <joint name="wheel2_roller3_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_12"/>
-    <origin xyz="-0.125524 -0.055385 -0.109800" rpy="2.904200 0.756110 -0.164504"/>
+    <origin xyz="0.004476 -0.025388 0.015200" rpy="2.904200 0.756110 -0.164504"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1186,7 +1229,7 @@
   <joint name="wheel2_roller4_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_13"/>
-    <origin xyz="-0.142888 -0.052323 -0.109800" rpy="-2.577650 0.579640 0.333473"/>
+    <origin xyz="-0.012890 -0.022325 0.015201" rpy="-2.577650 0.579640 0.333473"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1194,7 +1237,7 @@
   <joint name="wheel2_roller5_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_14"/>
-    <origin xyz="-0.154222 -0.038816 -0.109800" rpy="-2.372226 0.177167 0.169051"/>
+    <origin xyz="-0.024224 -0.008816 0.015200" rpy="-2.372226 0.177167 0.169051"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1202,7 +1245,7 @@
   <joint name="wheel2_roller6_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_15"/>
-    <origin xyz="-0.154222 -0.021184 -0.109800" rpy="-2.372226 -0.177167 -0.169051"/>
+    <origin xyz="-0.024224 0.008817 0.015201" rpy="-2.372226 -0.177167 -0.169051"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1210,7 +1253,7 @@
   <joint name="wheel2_roller7_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_16"/>
-    <origin xyz="-0.142888 -0.007677 -0.109800" rpy="-2.577650 -0.579640 -0.333473"/>
+    <origin xyz="-0.012888 0.022326 0.015201" rpy="-2.577650 -0.579640 -0.333473"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1218,7 +1261,7 @@
   <joint name="wheel2_roller8_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_17"/>
-    <origin xyz="-0.125524 -0.004615 -0.109800" rpy="2.904200 -0.756110 0.164504"/>
+    <origin xyz="0.004477 0.025387 0.015201" rpy="2.904200 -0.756110 0.164504"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1226,7 +1269,7 @@
   <joint name="wheel2_roller9_axe_2" type="continuous">
     <parent link="wheel2_hub_2"/>
     <child link="wheel2_roller_18"/>
-    <origin xyz="-0.110254 -0.013431 -0.109800" rpy="2.431315 -0.369145 0.300886"/>
+    <origin xyz="0.019749 0.016570 0.015201" rpy="2.431315 -0.369145 0.300886"/>
     <axis xyz="0.000000 0.000000 1.000000"/>
     <limit effort="100.0" velocity="1.00"/>
   </joint>
@@ -1601,4 +1644,8 @@
     </joint>
   </ros2_control>
 
+  <!-- Configuration du compilateur MuJoCo -->
+  <mujoco>
+    <compiler discardvisual="false" meshdir="../3D_models"/>
+  </mujoco>
 </robot>
