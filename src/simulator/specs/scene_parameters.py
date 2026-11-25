@@ -7,7 +7,7 @@ class SceneBordersParameters(BaseModel):
 
     @field_validator("height", "thickness", mode="before")
     @classmethod
-    def validate(cls, value: float):
+    def validate(cls, value: float) -> float:
         return value / 1000
 
 
@@ -18,5 +18,5 @@ class SceneParameters(BaseModel):
 
     @field_validator("width", "height", mode="before")
     @classmethod
-    def validate(cls, value: float):
+    def validate(cls, value: float) -> float:
         return value / 1000

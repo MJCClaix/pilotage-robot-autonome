@@ -1,20 +1,18 @@
 import json
 import time
-from pathlib import Path
 
 import mujoco.viewer
 
-from simulator.models.robots.robot_2026.robot2026 import Robot2026
-from simulator.models.robots.robot_specs import RobotSpecs
-from simulator.models.scenes.scene_parameters import SceneParameters
-
-from .models.scenes.scene_2027 import SceneModel
-
-assets_folder_path = Path("assets/simulator")
-robot_specs_file_path = assets_folder_path / "robots/2026/specs.json"
-scene_parameters_file_path = assets_folder_path / "scenes/2027/params.json"
-textures_folder_path = assets_folder_path / "textures"
-robot_urdf_path = assets_folder_path / "robots/2026/robot.urdf"
+from simulator.paths import (
+    robot_specs_file_path,
+    robot_urdf_path,
+    scene_parameters_file_path,
+    textures_folder_path,
+)
+from simulator.robots.robot_2026.robot2026 import Robot2026
+from simulator.scenes.scene_model import SceneModel
+from simulator.specs.robot_specs import RobotSpecs
+from simulator.specs.scene_parameters import SceneParameters
 
 if __name__ == "__main__":
     with open(robot_specs_file_path) as f:

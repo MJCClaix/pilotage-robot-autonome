@@ -3,8 +3,8 @@ from pathlib import Path
 import mujoco
 import mujoco.viewer
 
-from simulator.models.robots.robot_model import RobotModelBase
-from simulator.models.scenes.scene_parameters import SceneParameters
+from simulator.robots.robot_model import RobotModelBase
+from simulator.specs.scene_parameters import SceneParameters
 
 
 class SceneModel:
@@ -88,11 +88,11 @@ class SceneModel:
             material="wood_material",
         )
 
-    def add_robot(self, robot: RobotModelBase):
+    def add_robot(self, robot: RobotModelBase) -> None:
         """Injecte le robot dans le monde de la scène"""
         robot.assemble(self.sim_spec)
 
-    def compile(self):
+    def compile(self) -> tuple[mujoco.MjModel, mujoco.MjData]:
         """Transforme l'arbre complet en modèle physique exécutable"""
         model = self.sim_spec.compile(None)
         data = mujoco.MjData(model)

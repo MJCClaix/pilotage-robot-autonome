@@ -14,12 +14,12 @@ class RobotMotorSpecs(BaseModel):
 
     @field_validator("locking_torque", mode="before")
     @classmethod
-    def locking_pair_converter(cls, value: float):
+    def locking_pair_converter(cls, value: float) -> float:
         return value * 0.0980665
 
     @field_validator("no_load_speed", mode="before")
     @classmethod
-    def no_load_speed_converter(cls, value: float):
+    def no_load_speed_converter(cls, value: float) -> float:
         return value * 2 * pi / 60
 
 

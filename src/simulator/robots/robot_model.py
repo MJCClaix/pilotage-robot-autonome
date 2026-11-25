@@ -5,5 +5,5 @@ import mujoco
 
 class RobotModelBase(ABC):
     @abstractmethod
-    def assemble(self, sim_spec: mujoco.MjSpec):
+    def assemble(self, sim_spec: mujoco.MjSpec) -> mujoco.MjSpec:
         pass
