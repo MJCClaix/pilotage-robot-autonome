@@ -39,7 +39,7 @@ class Robot2026(RobotModelBase):
     @staticmethod
     def _attach_to_scene(sim_spec: mujoco.MjSpec, robot_spec: mujoco.MjSpec) -> None:
         """Attache le robot à la scène, avec un préfixe de noms et un joint libre sur le châssis"""
-        frame = sim_spec.worldbody.add_frame(pos=[0, 0, 0], quat=[1, 0, 0, 0])
+        frame = sim_spec.worldbody.add_frame(pos=[0, 0, 0.05], quat=[1, 0, 0, 0])
         sim_spec.attach(robot_spec, frame=frame, prefix="robot/")
         sim_spec.body("robot/base_link").add_freejoint()  # le châssis peut bouger sur le sol
 
@@ -120,4 +120,5 @@ class Robot2026(RobotModelBase):
         roller_friction = max(0.2, self.rng.gauss(wheels.nominal_friction, wheels.nominal_friction * wheels.nominal_friction_uncertainty))
         for roller in hub.bodies:
             for geom in roller.geoms:
+                geom.priority = 1
                 geom.friction = [roller_friction, 0.01, 0.0001]
