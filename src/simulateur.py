@@ -32,7 +32,7 @@ class Robot(pygame.sprite.Sprite, RobotBase):
         rotate_scale: float,
     ):
         super().__init__()
-        self.image = pygame.image.load(Path(__file__).parent.parent / "assets" / "robot.png")
+        self.image = pygame.image.load(Path(__file__).parent.parent / "assets" / "simulator" / "images" / "robot.png")
         self.rect = self.image.get_rect()
 
         self.rect.center = (int(x), int(y))

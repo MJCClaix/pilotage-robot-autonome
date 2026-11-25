@@ -34,42 +34,42 @@
     <visual>
       <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
       <geometry>
-        <mesh filename="robots/2026/base_link_metal.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="meshes/base_link_metal.obj" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="mat_metal"/>
     </visual>
     <visual>
       <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
       <geometry>
-        <mesh filename="robots/2026/base_link_epx.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="meshes/base_link_epx.obj" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="mat_epx"/>
     </visual>
     <visual>
       <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
       <geometry>
-        <mesh filename="robots/2026/base_link_acier.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="meshes/base_link_acier.obj" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="mat_acier"/>
     </visual>
     <visual>
       <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
       <geometry>
-        <mesh filename="robots/2026/base_link_abs.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="meshes/base_link_abs.obj" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="mat_abs"/>
     </visual>
     <visual>
       <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
       <geometry>
-        <mesh filename="robots/2026/base_link_alu.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="meshes/base_link_alu.obj" scale="0.01 0.01 0.01"/>
       </geometry>
       <material name="mat_alu"/>
     </visual>
     <collision>
       <origin xyz="0.000000 0.000000 0.000000" rpy="0.000000 0.000000 0.000000"/>
       <geometry>
-        <mesh filename="robots/2026/base_link.obj" scale="0.01 0.01 0.01"/>
+        <mesh filename="meshes/base_link.obj" scale="0.01 0.01 0.01"/>
       </geometry>
     </collision>
   </link>
@@ -1646,6 +1646,6 @@
 
   <!-- Configuration du compilateur MuJoCo -->
   <mujoco>
-    <compiler discardvisual="false" meshdir="../3D_models"/>
+    <compiler discardvisual="false" meshdir="."/>
   </mujoco>
 </robot>

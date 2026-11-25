@@ -25,7 +25,7 @@ class SceneModel:
         self.sim_spec.add_texture(
             name="table_texture",
             type=mujoco.mjtTexture.mjTEXTURE_2D,
-            file=str(textures_folder_path / "2027" / "table.png"),
+            file=str(textures_folder_path / "table_2027.png"),
         )
         self.sim_spec.add_texture(
             name="aruco_marker_texture",

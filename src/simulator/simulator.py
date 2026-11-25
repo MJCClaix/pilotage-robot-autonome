@@ -11,10 +11,10 @@ from simulator.models.scenes.scene_parameters import SceneParameters
 from .models.scenes.scene_2027 import SceneModel
 
 assets_folder_path = Path("assets/simulator")
-robot_specs_file_path = assets_folder_path / "components_specs/robot2026.json"
-scene_parameters_file_path = assets_folder_path / "scenes_parameters/scene2026.json"
+robot_specs_file_path = assets_folder_path / "robots/2026/specs.json"
+scene_parameters_file_path = assets_folder_path / "scenes/2027/params.json"
 textures_folder_path = assets_folder_path / "textures"
-robot_urdf_path = assets_folder_path / "URDF_models/assembled_robot2026.urdf"
+robot_urdf_path = assets_folder_path / "robots/2026/robot.urdf"
 
 if __name__ == "__main__":
     with open(robot_specs_file_path) as f:
