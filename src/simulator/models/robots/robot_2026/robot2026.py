@@ -1,4 +1,6 @@
 import random
+from pathlib import Path
+from typing import override
 
 import mujoco
 
@@ -6,15 +8,18 @@ from simulator.models.robots.robot_model import RobotModelBase
 from simulator.models.robots.robot_specs import RobotSpecs
 
 WHEEL_HUBS = ["wheel1_hub", "wheel1_hub_2", "wheel2_hub", "wheel2_hub_2"]
+ROBOT_HEIGHT = 0.218  # hauteur du châssis (m)
 
 
 class Robot2026(RobotModelBase):
-    def __init__(self, model_path: str, robot_specs: RobotSpecs):
+    def __init__(self, model_path: Path, robot_specs: RobotSpecs):
         self.model_path = model_path
         self.robot_specs = robot_specs
-
-    def assemble(self, sim_spec: mujoco.MjSpec, start_position: tuple[float, float, float]):
-        robot_spec = mujoco.MjSpec.from_file(self.model_path)
+    
+    @override
+    def assemble(self, sim_spec: mujoco.MjSpec):  # sourcery skip: low-code-quality
+        #TODO: masse du robot à corriger : le URDF donne 15.07 kg (châssis 12.91 kg, 4 hubs 1.99 kg, 36 rouleaux 0.16 kg), alors que robot2026.json indiquait 4 kg
+        robot_spec = mujoco.MjSpec.from_file(str(self.model_path))
         # Les sous-maillages visuels sont des surfaces ouvertes : MuJoCo doit calculer leur inertie en mode shell
         for mesh in robot_spec.meshes:
             mesh.inertia = mujoco.mjtMeshInertia.mjMESH_INERTIA_SHELL
@@ -23,12 +28,12 @@ class Robot2026(RobotModelBase):
         sim_spec.attach(robot_spec, frame=frame, prefix="robot/")
         sim_spec.body("robot/base_link").add_freejoint()  # le châssis peut bouger sur le sol
 
-        # Tag ArUco sur le dessus du châssis (z = 0.218 m, hauteur du châssis)
+        # Tag ArUco sur le dessus du châssis
         sim_spec.body("robot/base_link").add_geom(
             name="robot/aruco_marker_geom",
             type=mujoco.mjtGeom.mjGEOM_BOX,
             size=[0.035, 0.035, 0.00001],
-            pos=[0, 0, 0.218],
+            pos=[0, 0, ROBOT_HEIGHT],
             material="aruco_marker_material",
             group=1,  # visible (groupe des visuels)
             contype=0,
@@ -56,16 +61,20 @@ class Robot2026(RobotModelBase):
             if body.name.startswith("robot/") and "roller" in body.name:
                 sim_spec.add_exclude(name=f"{body.name}_base_excl", bodyname1="robot/base_link", bodyname2=body.name)
 
-        # Paramètres moteur : tirés une fois, partagés par les 4 roues
         motors = self.robot_specs.motors
-        max_torque = random.gauss(motors.locking_torque, motors.locking_torque * motors.torque_uncertainty)
-        max_speed = random.gauss(motors.no_load_speed, motors.no_load_speed * motors.speed_uncertainty)
-        damping = max_torque / max_speed
+        wheels = self.robot_specs.wheels
         armature = motors.base_rotor_inertia * motors.reduction_ratio ** 2
-        frictionloss = max_torque * motors.dead_zone
 
         for hub_name in WHEEL_HUBS:
-            wheel_joint = sim_spec.body(f"robot/{hub_name}").first_joint()  # joint de roue déjà défini dans le URDF
+            hub = sim_spec.body(f"robot/{hub_name}")
+
+            # Paramètres moteur : tirés une fois par roue (chaque moteur a ses propres valeurs)
+            max_torque = random.gauss(motors.locking_torque, motors.locking_torque * motors.torque_uncertainty)
+            max_speed = random.gauss(motors.no_load_speed, motors.no_load_speed * motors.speed_uncertainty)
+            damping = max_torque / max_speed
+            frictionloss = max_torque * motors.dead_zone
+
+            wheel_joint = hub.first_joint()  # joint de roue déjà défini dans le URDF
             wheel_joint.damping = [damping, 0, 0]
             wheel_joint.armature = armature
             wheel_joint.frictionloss = frictionloss
@@ -78,5 +87,11 @@ class Robot2026(RobotModelBase):
                 ctrlrange=[-1.0, 1.0],
                 gear=(max_torque, 0, 0, 0, 0, 0),
             )
+
+            # Frottement de roulement des rouleaux de cette roue : tiré une fois par roue, plancher à 0.2
+            roller_friction = max(0.2, random.gauss(wheels.nominal_friction, wheels.nominal_friction * wheels.nominal_friction_uncertainty))
+            for roller in hub.bodies:
+                for geom in roller.geoms:
+                    geom.friction = [roller_friction, 0.01, 0.0001]
 
         return robot_spec

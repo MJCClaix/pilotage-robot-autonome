@@ -32,6 +32,7 @@ htmlcov/
 
 # Logs
 *.log
+MUJOCO_LOG.TXT
 
 # Gestionnaires de dépendances
 # UV (moderne)

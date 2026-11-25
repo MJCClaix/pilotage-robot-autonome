@@ -5,22 +5,18 @@ from pathlib import Path
 import mujoco.viewer
 
 from simulator.models.robots.robot_2026.robot2026 import Robot2026
-from simulator.models.robots.robot_parameters import RobotParameters
 from simulator.models.robots.robot_specs import RobotSpecs
 from simulator.models.scenes.scene_parameters import SceneParameters
 
 from .models.scenes.scene_2027 import SceneModel
 
-robot_parameters_file_path = "assets/simulator/models_parameters/robot2026.json"
-robot_specs_file_path = "assets/simulator/components_specs/robot2026.json"
-robot_frame_mesh_path = "assets/simulator/3D_models/robots/frames/frame2026.stl"
-scene_parameters_file_path = "assets/simulator/scenes_parameters/scene2026.json"
-textures_folder_path = Path("assets/simulator/textures")
+assets_folder_path = Path("assets/simulator")
+robot_specs_file_path = assets_folder_path / "components_specs/robot2026.json"
+scene_parameters_file_path = assets_folder_path / "scenes_parameters/scene2026.json"
+textures_folder_path = assets_folder_path / "textures"
+robot_urdf_path = assets_folder_path / "URDF_models/assembled_robot2026.urdf"
 
 if __name__ == "__main__":
-    with open(robot_parameters_file_path) as f:
-        robot_parameters = RobotParameters(**json.load(f))
-
     with open(robot_specs_file_path) as f:
         robot_specs = RobotSpecs(**json.load(f))
 
@@ -30,9 +26,9 @@ if __name__ == "__main__":
     sim_spec = mujoco.MjSpec()
 
     scene = SceneModel(sim_spec, scene_parameters, textures_folder_path)
-    robot = Robot2026(r"C:\Users\Timeo\OneDrive\Documents\OneDrive\Documents\maison\robotique\pilotage-robot-autonome\assets\simulator\URDF_models\assembled_robot2026.urdf", robot_specs)
+    robot = Robot2026(robot_urdf_path, robot_specs)
 
-    scene.add_robot(robot, (0, 0, 0))
+    scene.add_robot(robot)
 
     model, data = scene.compile()
 

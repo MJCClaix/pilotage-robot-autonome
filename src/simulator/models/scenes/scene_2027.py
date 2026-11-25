@@ -25,7 +25,7 @@ class SceneModel:
         self.sim_spec.add_texture(
             name="table_texture",
             type=mujoco.mjtTexture.mjTEXTURE_2D,
-            file=str(textures_folder_path / "2027" / "table_4096.png"),
+            file=str(textures_folder_path / "2027" / "table.png"),
         )
         self.sim_spec.add_texture(
             name="aruco_marker_texture",
@@ -88,9 +88,9 @@ class SceneModel:
             material="wood_material",
         )
 
-    def add_robot(self, robot: RobotModelBase, position: tuple[float, float, float]):
+    def add_robot(self, robot: RobotModelBase):
         """Injecte le robot dans le monde de la scène"""
-        robot.assemble(self.sim_spec, position)
+        robot.assemble(self.sim_spec)
 
     def compile(self):
         """Transforme l'arbre complet en modèle physique exécutable"""
