@@ -3,6 +3,7 @@ import time
 
 import mujoco.viewer
 import cv2
+import pyvirtualcam
 from pydantic.dataclasses import dataclass
 from screeninfo import screeninfo
 
@@ -82,7 +83,9 @@ def main():
     configure_collisions(sim_model)
 
     try:
-        with mujoco.viewer.launch_passive(sim_model, sim_data) as viewer:
+        with pyvirtualcam.Camera(width=1920, height=1080, fps=30) as camera,  mujoco.viewer.launch_passive(sim_model, sim_data) as viewer:
+            print(f"Caméra active : {camera.device}")
+
             start_time = time.time()
 
             while viewer.is_running():
@@ -101,6 +104,9 @@ def main():
                 # Rendu de la caméra
                 renderer.update_scene(sim_data, camera="camera")
                 image = renderer.render()
+
+                camera.send(cv2.resize(image, (1920, 1080)))
+                camera.sleep_until_next_frame()
 
                 # Affichage de l'image avec OpenCV
                 cv2.imshow(

@@ -24,6 +24,7 @@ dependencies = [
     "mujoco>=3.16.0",
     "opencv-python>=5.1.0.95",
     "screeninfo>=0.8.1",
+    "pyvirtualcam>=0.15.0",
 ]
 
 [project.scripts]
