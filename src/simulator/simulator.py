@@ -1,7 +1,11 @@
+
 import json
 import time
 
+import mujoco
 import mujoco.viewer
+import cv2
+from screeninfo import screeninfo
 
 from simulator.paths import (
     robot_specs_file_path,
@@ -23,6 +27,12 @@ if __name__ == "__main__":
 
     sim_spec = mujoco.MjSpec()
 
+    width_camera = screeninfo.get_monitors()[0].width
+    height_camera = round(1080 / 1920 * width_camera)
+
+    sim_spec.visual.global_.offwidth = width_camera
+    sim_spec.visual.global_.offheight = height_camera
+
     scene = SceneModel(sim_spec, scene_parameters, textures_folder_path)
     robot = Robot2026(robot_urdf_path, robot_specs)
 
@@ -30,29 +40,56 @@ if __name__ == "__main__":
 
     model, data = scene.compile()
 
-    # Déplace les collisions du robot vers le groupe 3 (masqué par défaut dans le viewer) :
-    # seul le mesh visuel reste affiché. La physique n'est pas modifiée.
+    # Déplace les collisions du robot vers le groupe 3
     for geom_id in range(model.ngeom):
-        body_name = mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_BODY, model.geom_bodyid[geom_id])
+        body_name = mujoco.mj_id2name(
+            model,
+            mujoco.mjtObj.mjOBJ_BODY,
+            model.geom_bodyid[geom_id]
+        )
+
         if body_name and body_name.startswith("robot/") and model.geom_group[geom_id] == 0:
             model.geom_group[geom_id] = 3
 
-    with mujoco.viewer.launch_passive(model, data) as viewer:
-        start_time = time.time()
-        while viewer.is_running():
+    # Initialisation du renderer de la caméra
+    renderer = mujoco.Renderer(model, height=height_camera, width=width_camera)
 
-            step_start = time.time()
+    try:
+        with mujoco.viewer.launch_passive(model, data) as viewer:
+            start_time = time.time()
 
-            if start_time + 2 < time.time():
-                data.ctrl[0] = -0.5
-                data.ctrl[1] = 0.5
-                data.ctrl[2] = 0.5
-                data.ctrl[3] = -0.5
+            while viewer.is_running():
 
-            # noinspection argument-list
-            mujoco.mj_step(model, data)
-            viewer.sync()
+                step_start = time.time()
 
-            dt = model.opt.timestep - (time.time() - step_start)
-            if dt > 0:
-                time.sleep(dt)
+                if start_time + 2 < time.time():
+                    data.ctrl[0] = -0.5
+                    data.ctrl[1] = 0.5
+                    data.ctrl[2] = 0.5
+                    data.ctrl[3] = -0.5
+
+                # Simulation physique
+                mujoco.mj_step(model, data)
+
+                # Rendu de la caméra
+                renderer.update_scene(data, camera="camera")
+                image = renderer.render()
+
+                # Affichage de l'image avec OpenCV
+                cv2.imshow(
+                    "Camera robot",
+                    cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+                )
+                cv2.waitKey(1)
+
+                # Synchronisation du viewer 3D
+                viewer.sync()
+
+                # Gestion du temps de simulation
+                dt = model.opt.timestep - (time.time() - step_start)
+                if dt > 0:
+                    time.sleep(dt)
+
+    finally:
+        renderer.close()
+        cv2.destroyAllWindows()

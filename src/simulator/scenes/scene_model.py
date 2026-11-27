@@ -1,3 +1,4 @@
+import math
 from pathlib import Path
 
 import mujoco
@@ -86,6 +87,13 @@ class SceneModel:
             rgba=[0.85, 0.85, 0.85, 1],
             pos=[-self.scene_parameters.width / 2 - self.scene_parameters.borders.thickness / 2, 0, self.scene_parameters.borders.height / 2],
             material="wood_material",
+        )
+
+        self.sim_spec.worldbody.add_camera(
+            name="camera",
+            pos=[0, self.scene_parameters.height / 2 + 0.05, 1],
+            euler=[-30, 0, 180],
+            fovy=88.51
         )
 
     def add_robot(self, robot: RobotModelBase) -> None:
